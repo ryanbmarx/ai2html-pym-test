@@ -1,0 +1,30 @@
+<style type="text/css">
+	body{
+		height:auto !important;
+		/*background:yellow;*/
+	}
+</style>
+{% include 'ai/ai2html-output/faces.html' %}
+<script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
+<script src="//{{ ROOT_URL }}/js/resizer-script-mod.js"></script>
+
+<script type="text/javascript">
+	var pym = require('pym.js');
+	var pymChild;
+
+    document.addEventListener('DOMContentLoaded', function(){
+    	console.log('dom loaded')
+		pymChild = new pym.Child({
+			renderCallback:resizer
+		});
+    	resizer();
+    });
+
+    window.addEventListener('resize', throttle(function(){
+    	console.log('throttled resizing')
+    	resizer();
+    	pymChild.sendHeight();
+    }, 200));   
+
+	
+</script>

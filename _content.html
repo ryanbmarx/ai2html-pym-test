@@ -1,0 +1,60 @@
+{# Override the `container` block to disable default layout. #}
+{% block container %}
+{% block content %}
+	<style type="text/css">
+		.iframe--std{
+			width:100%;
+			height:500px;
+		}
+	</style>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribus eligendi pariatur, sequi, impedit! Voluptatum necessitatibus dolore, tempora perferendis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, isicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribus eligendi pariatur, sequi, impedit! Voluptatum necessitatibus dolore, tempora perferendis.</p>
+	<p><strong>Begin pym iframe</strong></p>
+		<div id='pym-test'></div>
+	<p><strong>End pym iframe</strong></p>
+
+	<p><strong>Begin pym iframe</strong></p>
+		<div id='pym-test2'></div>
+	<p><strong>End pym iframe</strong></p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribus eligendi pariatur, sequi, impedit! Voluptatum necessitatibus dolore, tempora perferendis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, isicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribus eligendi pariatur, sequi, impedit! Voluptatum necessitatibus dolore, tempora perferendis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribus eligendi pariatur, sequi, impedit! Voluptatum necessitatibus dolore, tempora perferendis.</p>
+	<p><strong>Begin std iframe</strong></p>
+	<iframe class='iframe--std' src='graphic.html'></iframe>
+	<p><strong>End srd iframe</strong></p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribisicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, isicing elit. Facere omnis cumque excepturi ipsum esse sunt soluta nulla, aspernatur magni est doloribus eligendi pariatur, sequi, impedit! Voluptatum necessitatibus dolore, tempora perferendis.</p>
+{% endblock content %}
+{% endblock container %}
+
+{% block library_scripts %}
+{# Uncomment this if you are using libraries such as jQuery #}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
+<script>
+	var pym = require('pym.js');
+
+    var pymParent = new pym.Parent('pym-test', 'graphic.html', {
+
+    });
+    var pymParent2 = new pym.Parent('pym-test2', 'graphic.html', {
+
+    });
+
+</script>
+{# <script>
+(function(document) {
+  var CSS = [
+    "//{{ ROOT_URL }}/css/styles.css"
+  ];    
+  CSS.forEach(function(url) {
+    var link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', url);
+    document.head.appendChild(link);
+  });
+})(document);    
+</script> #}
+{% endblock scripts %}
